@@ -1,0 +1,241 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 16px 0;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 12px 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--gray-900);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logoIcon {
+    font-size: 1.75rem;
+}
+
+.logo:hover {
+    color: var(--primary);
+}
+
+.nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.navList {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navLink {
+    display: block;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--gray-700);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.navLink:hover {
+    color: var(--primary);
+    background: rgba(37, 99, 235, 0.08);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.cartBtn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--gray-100);
+    border-radius: 12px;
+    color: var(--gray-700);
+    transition: all 0.2s ease;
+}
+
+.cartBtn:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.cartBadge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--danger);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuBtn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: var(--gray-100);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    gap: 5px;
+    transition: background 0.2s ease;
+}
+
+.menuBtn span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--gray-700);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menuBtn:hover {
+    background: var(--gray-200);
+}
+
+.menuBtnActive span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menuBtnActive span:nth-child(2) {
+    opacity: 0;
+}
+
+.menuBtnActive span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.closeBtn {
+    display: none;
+}
+
+@media (max-width: 1100px) {
+    .header {
+        background: #ffffff;
+    }
+
+    .header.scrolled {
+        background: #ffffff;
+    }
+
+    .menuBtn {
+        display: flex;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #ffffff;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 100px 24px 40px;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 999;
+        overflow-y: auto;
+    }
+
+    .navOpen {
+        transform: translateX(0);
+    }
+
+    .closeBtn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background: var(--gray-100);
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 24px;
+        color: var(--gray-700);
+        transition: all 0.2s ease;
+    }
+
+    .closeBtn:hover {
+        background: var(--gray-200);
+    }
+
+    .navList {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .navLink {
+        font-size: 1.25rem;
+        padding: 16px 24px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .logoIcon {
+        font-size: 1.5rem;
+    }
+}

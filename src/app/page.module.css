@@ -1,0 +1,352 @@
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 0 80px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.heroContainer {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.heroContent {
+    z-index: 2;
+}
+
+.heroBadge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 30px;
+    margin-bottom: 24px;
+}
+
+.heroTitle {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--gray-900);
+    margin-bottom: 24px;
+}
+
+.heroGradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.heroText {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 500px;
+}
+
+.heroButtons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.heroImageWrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.heroImageBg {
+    position: absolute;
+    inset: -20px;
+    background: var(--gradient-primary);
+    border-radius: 30px;
+    transform: rotate(-3deg);
+    opacity: 0.15;
+}
+
+.heroImage {
+    border-radius: 24px;
+    box-shadow: var(--shadow-xl);
+    object-fit: cover;
+}
+
+.heroShapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.shape1 {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 300px;
+    height: 300px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    opacity: 0.05;
+    filter: blur(80px);
+}
+
+.shape2 {
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+    width: 400px;
+    height: 400px;
+    background: var(--gradient-accent);
+    border-radius: 50%;
+    opacity: 0.05;
+    filter: blur(100px);
+}
+
+/* Stats Section */
+.stats {
+    padding: 60px 0;
+    background: var(--white);
+    margin-top: -40px;
+    position: relative;
+    z-index: 10;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.statCard {
+    background: var(--gray-50);
+    border-radius: var(--card-radius);
+    padding: 32px 24px;
+    text-align: center;
+    border: 1px solid var(--gray-100);
+    transition: all 0.3s ease;
+}
+
+.statCard:hover {
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.statIcon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.statValue {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 4px;
+}
+
+.statLabel {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+/* Categories Section */
+.categories {
+    background: var(--gray-50);
+}
+
+.categoriesGrid {
+    /* Uses global grid-4 utility */
+    display: grid;
+}
+
+/* Products Section */
+.products {
+    background: var(--white);
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.sectionSubtitle {
+    font-size: 1rem;
+    color: var(--gray-500);
+}
+
+.productsGrid {
+    /* Uses global grid-4 utility */
+    display: grid;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background: var(--gradient-dark);
+    color: var(--white);
+}
+
+.testimonialsTitle {
+    color: var(--white) !important;
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+}
+
+.testimonialsSubtitle {
+    text-align: center;
+    color: var(--gray-400) !important;
+    margin-bottom: 48px;
+}
+
+.testimonialsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.testimonialCard {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--card-radius);
+    padding: 32px;
+    transition: all 0.3s ease;
+}
+
+.testimonialCard:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+}
+
+.testimonialStars {
+    color: var(--accent);
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+}
+
+.testimonialText {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--gray-300);
+    margin-bottom: 24px;
+}
+
+.testimonialAuthor {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.authorImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.authorName {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 2px;
+}
+
+.authorRole {
+    font-size: 0.875rem;
+    color: var(--gray-400);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .heroContainer {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+    }
+
+    .heroContent {
+        order: 1;
+    }
+
+    .heroText {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .heroButtons {
+        justify-content: center;
+    }
+
+    .heroImageWrapper {
+        max-width: 500px;
+        margin: 0 auto;
+        order: 0;
+    }
+
+    .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonialsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        min-height: auto;
+        padding: 100px 0 60px;
+    }
+
+    .heroTitle {
+        font-size: 2rem;
+    }
+
+    .heroButtons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .heroButtons>* {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .statCard {
+        padding: 24px 20px;
+    }
+
+    .sectionHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

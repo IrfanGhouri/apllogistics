@@ -1,0 +1,143 @@
+.pageHeader {
+    background: var(--gradient-dark);
+    color: var(--white);
+    padding: 140px 0 60px;
+    text-align: center;
+}
+
+.pageHeader h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.pageHeader p {
+    font-size: 1.125rem;
+    color: var(--gray-300);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.content {
+    padding: 60px 0 80px;
+    background: var(--gray-50);
+}
+
+.story,
+.values,
+.team {
+    background: var(--white);
+    border-radius: var(--card-radius);
+    padding: 40px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-sm);
+}
+
+.story h2,
+.values h2,
+.team h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 20px;
+}
+
+.story p,
+.team p {
+    color: var(--gray-600);
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+.story p:last-child,
+.team p:last-child {
+    margin-bottom: 0;
+}
+
+.valuesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.valueCard {
+    background: var(--gray-50);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+}
+
+.valueIcon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.valueCard h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.valueCard p {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.statItem {
+    background: var(--white);
+    border-radius: var(--card-radius);
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.statNumber {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.statLabel {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+}
+
+@media (max-width: 768px) {
+    .pageHeader {
+        padding: 120px 0 40px;
+    }
+
+    .story,
+    .values,
+    .team {
+        padding: 24px;
+    }
+
+    .valuesGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,167 @@
+.pageHeader {
+    background: var(--gradient-dark);
+    color: var(--white);
+    padding: 140px 0 60px;
+    text-align: center;
+}
+
+.pageHeader h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.pageHeader p {
+    font-size: 1.125rem;
+    color: var(--gray-300);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.content {
+    padding: 60px 0 80px;
+    background: var(--gray-50);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.info h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.info>p {
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.contactCards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contactCard {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.contactCard h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.contactCard p {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.5;
+}
+
+.formCard {
+    background: var(--white);
+    border-radius: var(--card-radius);
+    padding: 40px;
+    box-shadow: var(--shadow-md);
+}
+
+.formCard h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 8px;
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--button-radius);
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.success {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.successIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--success);
+    color: var(--white);
+    font-size: 1.5rem;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.success h3 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.success p {
+    color: var(--gray-600);
+}
+
+@media (max-width: 768px) {
+    .pageHeader {
+        padding: 120px 0 40px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .formCard {
+        padding: 24px;
+    }
+}

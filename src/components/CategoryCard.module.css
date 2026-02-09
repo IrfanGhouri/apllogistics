@@ -1,0 +1,86 @@
+.card {
+    display: block;
+    position: relative;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    aspect-ratio: 1;
+    box-shadow: var(--shadow-lg);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-xl);
+}
+
+.imageWrapper {
+    position: absolute;
+    inset: 0;
+}
+
+.image {
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.card:hover .image {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(0, 0, 0, 0.8) 100%);
+    transition: background 0.3s ease;
+}
+
+.card:hover .overlay {
+    background: linear-gradient(180deg,
+            rgba(37, 99, 235, 0.1) 0%,
+            rgba(37, 99, 235, 0.2) 40%,
+            rgba(15, 23, 42, 0.9) 100%);
+}
+
+.content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px;
+    color: var(--white);
+    z-index: 1;
+}
+
+.name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--white);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.card:hover .cta {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cta svg {
+    transition: transform 0.3s ease;
+}
+
+.card:hover .cta svg {
+    transform: translateX(4px);
+}
