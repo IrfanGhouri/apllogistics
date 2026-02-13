@@ -285,6 +285,272 @@ export const products: Product[] = [
         inStock: true,
         rating: 4.9,
         reviews: 312
+    },
+    // --- New Products from Zainclub Research ---
+    // Grocery & Foods
+    {
+        id: '21',
+        name: 'Condensed Fiesta Nacho Cheese Soup',
+        slug: 'fiesta-nacho-cheese-soup',
+        price: 2.14,
+        image: '/images/Condensed Fiesta Nacho Cheese Soup.webp',
+        category: 'Grocery & Foods',
+        categorySlug: 'grocery-foods',
+        description: 'A creamy, rich, and spicy soup that can be used as a recipe starter or a delicious dip.',
+        inStock: true,
+        rating: 4.5,
+        reviews: 45
+    },
+    {
+        id: '22',
+        name: 'Chicken & Mini Round Noodle Sipping Soup',
+        slug: 'chicken-noodle-sipping-soup',
+        price: 2.79,
+        image: '/images/Chicken & Mini Round Noodle Sipping Soup.webp',
+        category: 'Grocery & Foods',
+        categorySlug: 'grocery-foods',
+        description: 'Portable, microwavable cup of comforting chicken soup with mini round noodles.',
+        inStock: true,
+        rating: 4.7,
+        reviews: 32
+    },
+    {
+        id: '23',
+        name: 'Original Canned Pasta in Tomato Sauce',
+        slug: 'spaghettios-original-pasta',
+        price: 1.59,
+        image: '/images/Original Canned Pasta in Tomato Sauce.webp',
+        category: 'Grocery & Foods',
+        categorySlug: 'grocery-foods',
+        description: 'Signature O-shaped pasta in a savory tomato and cheese sauce, ready in minutes.',
+        inStock: true,
+        rating: 4.4,
+        reviews: 87
+    },
+    {
+        id: '24',
+        name: 'Condensed Kids Chicken and Stars Soup',
+        slug: 'kids-chicken-stars-soup',
+        price: 2.49,
+        image: '/images/Condensed Kids Chicken and Stars Soup.webp',
+        category: 'Grocery & Foods',
+        categorySlug: 'grocery-foods',
+        description: 'Fun star-shaped pasta and tender chicken meat in a savory chicken broth.',
+        inStock: true,
+        rating: 4.8,
+        reviews: 56
+    },
+    // Pets Supplies
+    {
+        id: '25',
+        name: 'Chicken Jerky Recipe Dog Treats',
+        slug: 'chicken-jerky-dog-treats',
+        price: 19.99,
+        image: '/images/Chicken Jerky Recipe Dog Treats.webp',
+        category: 'Pets Supplies',
+        categorySlug: 'pets-supplies',
+        description: 'Premium chicken jerky treats made with real chicken for a high-protein snack.',
+        inStock: true,
+        rating: 4.9,
+        reviews: 112
+    },
+    {
+        id: '26',
+        name: 'Irish Rover Beef Stick Dog Treats',
+        slug: 'beef-stick-dog-treats',
+        price: 24.99,
+        image: '/images/Irish Rover Beef Stick Dog Treats.webp',
+        category: 'Pets Supplies',
+        categorySlug: 'pets-supplies',
+        description: 'Savory beef sticks that dogs love, perfect for training and rewarding.',
+        inStock: true,
+        rating: 4.8,
+        reviews: 78
+    },
+    {
+        id: '27',
+        name: 'All-Natural Beef Hide Canine Chews',
+        slug: 'beef-hide-chews',
+        price: 15.99,
+        image: '/images/All-Natural Beef Hide Canine Chews.webp',
+        category: 'Pets Supplies',
+        categorySlug: 'pets-supplies',
+        description: 'Long-lasting beef hide chews that promote healthy teeth and gums.',
+        inStock: true,
+        rating: 4.6,
+        reviews: 94
+    },
+    {
+        id: '28',
+        name: 'Freeze-Dried Raw Beef Liver Bits',
+        slug: 'freeze-dried-beef-liver',
+        price: 29.99,
+        image: '/images/Freeze-Dried Raw Beef Liver Bits.webp',
+        category: 'Pets Supplies',
+        categorySlug: 'pets-supplies',
+        description: '100% natural, grain-free freeze-dried beef liver treats for dogs and cats.',
+        inStock: true,
+        rating: 4.9,
+        reviews: 134
+    },
+    // Water & Beverages
+    {
+        id: '29',
+        name: 'Purified Bottled Water 24-Pack',
+        slug: 'purified-water-24-pack',
+        price: 12.99,
+        image: '/images/Purified Bottled Water 24-Pack.webp',
+        category: 'Water & Beverages',
+        categorySlug: 'water-beverages',
+        description: 'Crisp and refreshing purified water in a convenient bulk pack.',
+        inStock: true,
+        rating: 4.7,
+        reviews: 432
+    },
+    {
+        id: '30',
+        name: 'Carbonated Mineral Water 12-Pack',
+        slug: 'carbonated-mineral-water',
+        price: 14.99,
+        image: '/images/Carbonated Mineral Water 12-Pack.webp',
+        category: 'Water & Beverages',
+        categorySlug: 'water-beverages',
+        description: 'Premium carbonated mineral water from natural springs.',
+        inStock: true,
+        rating: 4.8,
+        reviews: 124
+    },
+    {
+        id: '31',
+        name: '100% Natural North Spring Water',
+        slug: 'natural-spring-water',
+        price: 8.99,
+        image: '/images/100% Natural North Spring Water.webp',
+        category: 'Water & Beverages',
+        categorySlug: 'water-beverages',
+        description: 'Naturally filtered spring water with a clean, light taste.',
+        inStock: true,
+        rating: 4.6,
+        reviews: 156
+    },
+    {
+        id: '32',
+        name: 'Plus+ Alkaline Bottled Water',
+        slug: 'alkaline-bottled-water',
+        price: 18.99,
+        image: '/images/Plus+ Alkaline Bottled Water.webp',
+        category: 'Water & Beverages',
+        categorySlug: 'water-beverages',
+        description: 'High-pH alkaline water enriched with essential minerals.',
+        inStock: true,
+        rating: 4.5,
+        reviews: 89
+    },
+    // Household Essentials
+    {
+        id: '33',
+        name: 'Windfresh Powder Laundry Detergent',
+        slug: 'powder-laundry-detergent',
+        price: 22.99,
+        image: '/images/Windfresh Powder Laundry Detergent.webp',
+        category: 'Household Essentials',
+        categorySlug: 'household-essentials',
+        description: 'High-efficiency powder detergent that removes tough stains effectively.',
+        inStock: true,
+        rating: 4.7,
+        reviews: 215
+    },
+    {
+        id: '34',
+        name: 'Disinfecting Wipes Multi-Pack 3-Pack',
+        slug: 'disinfecting-wipes-pack',
+        price: 15.99,
+        image: '/images/Disinfecting Wipes Multi-Pack 3-Pack.webp',
+        category: 'Household Essentials',
+        categorySlug: 'household-essentials',
+        description: 'Kills 99.9% of bacteria and viruses on hard, non-porous surfaces.',
+        inStock: true,
+        rating: 4.8,
+        reviews: 312
+    },
+    {
+        id: '35',
+        name: 'Artstyle Oval Paper Plates 50-Count',
+        slug: 'oval-paper-plates',
+        price: 12.49,
+        image: '/images/Artstyle Oval Paper Plates 50-Count.webp',
+        category: 'Household Essentials',
+        categorySlug: 'household-essentials',
+        description: 'Sturdy and stylish oval paper plates perfect for any gathering.',
+        inStock: true,
+        rating: 4.5,
+        reviews: 67
+    },
+    {
+        id: '36',
+        name: 'Luxury 2-Ply Toilet Paper 24-Roll',
+        slug: 'luxury-toilet-paper-pack',
+        price: 19.99,
+        image: '/images/Luxury 2-Ply Toilet Paper 24-Roll.webp',
+        category: 'Household Essentials',
+        categorySlug: 'household-essentials',
+        description: 'Ultra-soft and absorbent 2-ply toilet paper for maximum comfort.',
+        inStock: true,
+        rating: 4.6,
+        reviews: 145
+    },
+    // Apparels
+    {
+        id: '37',
+        name: 'Classic Multi-Color Baseball Cap',
+        slug: 'classic-baseball-cap',
+        price: 15.99,
+        image: '/images/Classic Multi-Color Baseball Cap.webp',
+        category: 'Apparels',
+        categorySlug: 'apparels',
+        description: 'Breathable cotton baseball cap available in various premium colors.',
+        inStock: true,
+        rating: 4.7,
+        reviews: 89
+    },
+    {
+        id: '38',
+        name: 'Premium Structured Fitted Hat',
+        slug: 'premium-fitted-hat',
+        price: 24.99,
+        image: '/images/Premium Structured Fitted Hat.jpg',
+        category: 'Apparels',
+        categorySlug: 'apparels',
+        description: 'Constructed fit hat with moisture-wicking technology and modern style.',
+        inStock: true,
+        rating: 4.8,
+        reviews: 56
+    },
+    {
+        id: '39',
+        name: 'Outdoor Adventure Sun Hat',
+        slug: 'outdoor-sun-hat',
+        price: 29.99,
+        image: '/images/Outdoor Adventure Sun Hat.jpg',
+        category: 'Apparels',
+        categorySlug: 'apparels',
+        description: 'Wide-brimmed sun hat with UPF 50+ protection for outdoor activities.',
+        inStock: true,
+        rating: 4.9,
+        reviews: 42
+    },
+    {
+        id: '40',
+        name: 'Stylish Heritage Winter Beanie',
+        slug: 'stylish-winter-beanie',
+        price: 19.99,
+        image: '/images/Stylish Heritage Winter Beanie.jpg',
+        category: 'Apparels',
+        categorySlug: 'apparels',
+        description: 'Warm and cozy ribbed beanie made from soft, high-quality yarns.',
+        inStock: true,
+        rating: 4.8,
+        reviews: 123
     }
 ];
 
@@ -297,5 +563,5 @@ export const getProductBySlug = (slug: string): Product | undefined => {
 };
 
 export const getLatestProducts = (count: number = 8): Product[] => {
-    return products.slice(0, count);
+    return [...products].reverse().slice(0, count);
 };
