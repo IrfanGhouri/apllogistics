@@ -4,11 +4,14 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCartStore } from '@/store/useCartStore';
+import StripeProvider from '@/components/StripeProvider';
+import StripePaymentForm from '@/components/StripePaymentForm';
 import styles from './page.module.css';
 
 export default function CheckoutPage() {
     const [mounted, setMounted] = useState(false);
     const [orderPlaced, setOrderPlaced] = useState(false);
+    const [paymentMethod, setPaymentMethod] = useState<'card' | 'bank' | 'zelle'>('card');
     const { items, getTotal, clearCart } = useCartStore();
 
     const [formData, setFormData] = useState({
@@ -20,14 +23,11 @@ export default function CheckoutPage() {
         city: '',
         state: '',
         zipCode: '',
-        cardNumber: '',
-        expiry: '',
-        cvv: '',
     });
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
+    const isFormValid = formData.firstName && formData.lastName && formData.email &&
+        formData.phone && formData.address && formData.city &&
+        formData.state && formData.zipCode;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData(prev => ({
@@ -36,13 +36,24 @@ export default function CheckoutPage() {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Simulate order placement
+
+    const handlePaymentSuccess = () => {
         setOrderPlaced(true);
         clearCart();
     };
 
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        // Billing info is handled by the form state, 
+        // Stripe payment is handled by handlePaymentSuccess callback
+    };
+
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // 1. Loading state (Pre-hydration / Client mounting)
     if (!mounted) {
         return (
             <section className={styles.loading}>
@@ -53,6 +64,7 @@ export default function CheckoutPage() {
         );
     }
 
+    // 2. Success state
     if (orderPlaced) {
         return (
             <>
@@ -80,6 +92,7 @@ export default function CheckoutPage() {
         );
     }
 
+    // 3. Empty cart state
     if (items.length === 0) {
         return (
             <>
@@ -105,10 +118,12 @@ export default function CheckoutPage() {
         );
     }
 
+
     const subtotal = getTotal();
     const shipping = subtotal >= 50 ? 0 : 5.99;
     const tax = subtotal * 0.08;
     const total = subtotal + shipping + tax;
+
 
     return (
         <>
@@ -121,9 +136,9 @@ export default function CheckoutPage() {
 
             <section className={styles.content}>
                 <div className={styles.container}>
-                    <form onSubmit={handleSubmit} className={styles.checkoutLayout}>
+                    <div className={styles.checkoutLayout}>
                         <div className={styles.formSection}>
-                            <div className={styles.formCard}>
+                            <form className={styles.formCard}>
                                 <h2>Shipping Information</h2>
                                 <div className={styles.formGrid}>
                                     <div className={styles.formGroup}>
@@ -215,49 +230,93 @@ export default function CheckoutPage() {
                                         />
                                     </div>
                                 </div>
-                            </div>
+                            </form>
 
-                            <div className={styles.formCard}>
-                                <h2>Payment Information</h2>
-                                <div className={styles.formGrid}>
-                                    <div className={`${styles.formGroup} ${styles.fullWidth}`}>
-                                        <label className={styles.label}>Card Number</label>
-                                        <input
-                                            type="text"
-                                            name="cardNumber"
-                                            value={formData.cardNumber}
-                                            onChange={handleChange}
-                                            className={styles.input}
-                                            placeholder="1234 5678 9012 3456"
-                                            required
-                                        />
+                            <div className={styles.formCard} style={{ marginTop: '2rem' }}>
+                                <h2>Payment Method</h2>
+                                <div className={styles.paymentMethods}>
+                                    <div
+                                        className={`${styles.methodCard} ${paymentMethod === 'card' ? styles.active : ''}`}
+                                        onClick={() => setPaymentMethod('card')}
+                                    >
+                                        <div className={styles.methodIcon}>💳</div>
+                                        <div className={styles.methodName}>Card</div>
                                     </div>
-                                    <div className={styles.formGroup}>
-                                        <label className={styles.label}>Expiry Date</label>
-                                        <input
-                                            type="text"
-                                            name="expiry"
-                                            value={formData.expiry}
-                                            onChange={handleChange}
-                                            className={styles.input}
-                                            placeholder="MM/YY"
-                                            required
-                                        />
+                                    <div
+                                        className={`${styles.methodCard} ${paymentMethod === 'bank' ? styles.active : ''}`}
+                                        onClick={() => setPaymentMethod('bank')}
+                                    >
+                                        <div className={styles.methodIcon}>🏦</div>
+                                        <div className={styles.methodName}>Bank</div>
                                     </div>
-                                    <div className={styles.formGroup}>
-                                        <label className={styles.label}>CVV</label>
-                                        <input
-                                            type="text"
-                                            name="cvv"
-                                            value={formData.cvv}
-                                            onChange={handleChange}
-                                            className={styles.input}
-                                            placeholder="123"
-                                            required
-                                        />
+                                    <div
+                                        className={`${styles.methodCard} ${paymentMethod === 'zelle' ? styles.active : ''}`}
+                                        onClick={() => setPaymentMethod('zelle')}
+                                    >
+                                        <div className={styles.methodIcon}>📱</div>
+                                        <div className={styles.methodName}>Zelle</div>
                                     </div>
                                 </div>
+
+                                {paymentMethod === 'card' && (
+                                    <StripePaymentForm
+                                        onSuccess={handlePaymentSuccess}
+                                        totalAmount={total}
+                                        disabled={!isFormValid}
+                                    />
+                                )}
+
+                                {paymentMethod === 'bank' && (
+                                    <div className={styles.instructionBox}>
+                                        <h3>Bank Transfer Details</h3>
+                                        <p>Please transfer the total amount to the following account:</p>
+                                        <ul>
+                                            <li><strong>Bank:</strong> Revolut</li>
+                                            <li><strong>Account Name:</strong> APL Logistics LLC</li>
+                                            <li><strong>Account Number:</strong> 214617352526</li>
+                                        </ul>
+                                        <p className={styles.screenshotNote}>
+                                            ⚠️ IMPORTANT: Send a screenshot/receipt of the payment to +1 (773) 668-8078 on WhatsApp to confirm your order.
+                                        </p>
+                                        <button
+                                            onClick={handlePaymentSuccess}
+                                            disabled={!isFormValid}
+                                            className="btn btn-primary"
+                                            style={{ width: '100%', marginTop: '1.5rem' }}
+                                        >
+                                            {isFormValid ? 'Place Order (Bank Transfer)' : 'Complete Shipping Details First'}
+                                        </button>
+                                    </div>
+                                )}
+
+                                {paymentMethod === 'zelle' && (
+                                    <div className={styles.instructionBox}>
+                                        <h3>Zelle Payment Instructions</h3>
+                                        <p>Send your payment via Zelle to:</p>
+                                        <p style={{ fontSize: '1.2rem', fontWeight: 'bold', margin: '1rem 0' }}>
+                                            achilleas.loumis@gmail.com
+                                        </p>
+                                        <p className={styles.screenshotNote}>
+                                            ⚠️ IMPORTANT: Send a screenshot of the Zelle confirmation to +1 (773) 668-8078 on WhatsApp to confirm your order.
+                                        </p>
+                                        <button
+                                            onClick={handlePaymentSuccess}
+                                            disabled={!isFormValid}
+                                            className="btn btn-primary"
+                                            style={{ width: '100%', marginTop: '1.5rem' }}
+                                        >
+                                            {isFormValid ? 'Place Order (Zelle)' : 'Complete Shipping Details First'}
+                                        </button>
+                                    </div>
+                                )}
+
+                                {!isFormValid && (
+                                    <div className={styles.validationWarning}>
+                                        Please fill in all shipping details to enable payment.
+                                    </div>
+                                )}
                             </div>
+
                         </div>
 
                         <div className={styles.orderSummary}>
@@ -300,16 +359,14 @@ export default function CheckoutPage() {
                                 <span>Total</span>
                                 <span>${total.toFixed(2)}</span>
                             </div>
-                            <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%' }}>
-                                Place Order
-                            </button>
                             <Link href="/cart" className={styles.backLink}>
                                 ← Back to Cart
                             </Link>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </section>
         </>
     );
 }
+
